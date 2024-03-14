@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="labels">
+    <div class="start-date" *ngIf="logs[0] as startDate">
+      <div class="date">
+        {{ startDate.timestamp | date : "yyy-MM-dd" }}
+      </div>
+      <div class="time">
+        {{ startDate.timestamp | date : "HH:mm:ss" }}
+      </div>
+    </div>
+    <div class="end-date" *ngIf="logs[logs.length - 1] as endDate">
+      <div class="date">
+        {{ endDate.timestamp | date : "yyy-MM-dd" }}
+      </div>
+      <div class="time">
+        {{ endDate.timestamp | date : "HH:mm:ss" }}
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline py-1">
+    <div class="minute" *ngFor="let hour of timelineMinutes">
+      <ng-container *ngFor="let entry of logs; let i = index">
+        <div
+          class="entry"
+          [class.selectedEntry]="entry.timestamp === selectedEntry"
+          *ngIf="
+            (entry.timestamp | date : 'yyy-MM-dd HH:mm') ===
+            (hour | date : 'yyy-MM-dd HH:mm')
+          "
+          (mouseenter)="onEntryHover.emit(entry.timestamp)"
+          (mouseleave)="onEntryHover.emit('')"
+        ></div>
+      </ng-container>
+    </div>
+  </div>
+</div>

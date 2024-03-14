@@ -1,0 +1,19 @@
+table * {
+  font-size: 24px;
+
+  .info-icon {
+    color: rgb(13, 13, 177);
+  }
+
+  .warning-icon {
+    color: rgb(176, 116, 6);
+  }
+
+  .error-icon {
+    color: rgb(151, 8, 8);
+  }
+}
+
+.selectedRow {
+  background-color: rgb(227, 73, 73);
+}

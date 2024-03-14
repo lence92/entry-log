@@ -1,1 +1,46 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  height: 100%;
+}
+
+body,
+body * {
+  margin: 0;
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.px-1 {
+  padding: 0 1em;
+}
+
+.py-1 {
+  padding: 1em 0;
+}
+
+.mx-1 {
+  margin: 0 1em;
+}
+
+.my-1 {
+  margin: 1em 0;
+}
+
+// 20px
+.px-2 {
+  padding: 0 2em;
+}
+
+.py-2 {
+  padding: 2em 0;
+}
+
+.mx-2 {
+  margin: 0 2em;
+}
+
+.my-2 {
+  margin: 2em 0;
+}

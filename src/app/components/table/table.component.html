@@ -1,0 +1,54 @@
+<table mat-table [dataSource]="dataSource">
+  <!-- Time Column -->
+  <ng-container matColumnDef="timestamp">
+    <th mat-header-cell *matHeaderCellDef>Time (UTC)</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element?.timestamp | date : "yyy-MM-dd HH:mm:ss" }}
+    </td>
+  </ng-container>
+
+  <!-- Level Column -->
+  <ng-container matColumnDef="level">
+    <th mat-header-cell *matHeaderCellDef>Level</th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon
+        *ngIf="element.level === LEVEL.INFO"
+        aria-hidden="false"
+        aria-label="info icon"
+        fontIcon="info"
+        class="info-icon material-symbols-outlined"
+      ></mat-icon>
+
+      <mat-icon
+        *ngIf="element.level === LEVEL.WARNING"
+        aria-hidden="false"
+        aria-label="warning icon"
+        fontIcon="warning"
+        class="warning-icon material-symbols-outlined"
+      ></mat-icon>
+
+      <mat-icon
+        *ngIf="element.level === LEVEL.ERROR"
+        aria-hidden="false"
+        aria-label="error icon"
+        fontIcon="error"
+        class="error-icon"
+      ></mat-icon>
+    </td>
+  </ng-container>
+
+  <!-- Message Column -->
+  <ng-container matColumnDef="message">
+    <th mat-header-cell *matHeaderCellDef>Message</th>
+    <td mat-cell *matCellDef="let element">{{ element.message }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumns"
+    [class.selectedRow]="row.timestamp === selectedRow"
+    (mouseenter)="onRowHover.emit(row.timestamp)"
+    (mouseleave)="onRowHover.emit('')"
+  ></tr>
+</table>

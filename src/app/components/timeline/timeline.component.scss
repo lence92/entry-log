@@ -1,0 +1,37 @@
+.container {
+  background-color: gainsboro;
+  border: 1px solid black;
+  padding-bottom: 2em;
+
+  .labels {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .timeline {
+    display: flex;
+    justify-content: space-around;
+
+    .minute {
+      flex-grow: 1;
+      height: 2px;
+      background-color: black;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .entry {
+        cursor: pointer;
+        width: 0.7rem;
+        height: 0.7rem;
+        border-radius: 50%;
+        background-color: white;
+
+        &.selectedEntry {
+          background-color: rgb(227, 73, 73);
+        }
+      }
+    }
+  }
+}
